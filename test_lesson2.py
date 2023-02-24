@@ -2,7 +2,6 @@ import pytest
 from selene.support.shared import browser
 from selene import browser
 from selene import be, have
-import time
 
 
 @pytest.fixture()
@@ -19,12 +18,6 @@ def test_valid_text_input(browser_conf):
     browser.element('[id="search"]').should(have.text('Selene - User-oriented Web UI browser tests in Python'))
 
 
-time.sleep(6)
-
-
 def test_negative_text_input(browser_conf):
     browser.element('input[name=q]').should(be.blank).type('qwewqefgrhhrfhhfhfhdhdhfshdfhsdf').press_enter()
     browser.element('div[class="card-section"]').should(have.text('ничего не найдено'))
-
-
-time.sleep(6)
